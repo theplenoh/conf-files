@@ -15,6 +15,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'ErichDonGubler/vim-sublime-monokai'
+Plugin 'tomasiser/vim-code-dark'
 Plugin 'preservim/nerdtree'
 Plugin 'mattn/emmet-vim'
 
@@ -68,8 +69,13 @@ set autoindent
 
 "gvim font settings
 if has("gui_running")
-    :set guifont=Consolas:h10.5:cANSI
-    :set guifontwide=D2Coding:h10.5:cDEFAULT
+    set guioptions-=T
+    if has('gui_win32')
+        set guifont=Consolas:h10.5:cANSI
+        set guifontwide=D2Coding:h10.5:cDEFAULT
+    else
+        set guifont=monospace\ 13
+    endif
 endif
 
 "remember fold states
@@ -80,6 +86,7 @@ au BufWinEnter ?* silent loadview
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
-set guioptions-=T
-
 "autocmd vimenter * NERDTree
+
+set splitbelow
+set termwinsize=14x0
