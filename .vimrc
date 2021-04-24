@@ -41,7 +41,7 @@ filetype plugin indent on    " required
 "syntax highlighting
 syntax on
 set t_Co=256
-colorscheme sublimemonokai
+colorscheme codedark
 let g:sublimemonokai_term_italic = 1
 let g:sublimemonokai_gui_italic = 1
 
@@ -65,17 +65,13 @@ set nowrap
 "code folding & indentation
 set foldmethod=indent
 set autoindent
-"set cindent
+set cindent
 
-"gvim font settings
+"gvim
 if has("gui_running")
-    set guioptions-=T
-    if has('gui_win32')
-        set guifont=Consolas:h10.5:cANSI
-        set guifontwide=D2Coding:h10.5:cDEFAULT
-    else
-        set guifont=monospace\ 13
-    endif
+    :set guifont=Consolas:h10.5:cANSI
+    :set guifontwide=D2Coding:h10.5:cDEFAULT
+    :set guioptions-=T
 endif
 
 "remember fold states
@@ -86,7 +82,15 @@ au BufWinEnter ?* silent loadview
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
+
 "autocmd vimenter * NERDTree
+map <C-n> :NERDTreeToggle<CR>
 
 set splitbelow
+set splitright
 set termwinsize=14x0
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
