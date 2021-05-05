@@ -1,42 +1,14 @@
 "restore all options to their originals
 set all&
-set nocompatible              " be iMproved, required
-filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'ErichDonGubler/vim-sublime-monokai'
-Plugin 'tomasiser/vim-code-dark'
-Plugin 'preservim/nerdtree'
-Plugin 'mattn/emmet-vim'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
+call plug#begin('~/vimfiles/plugged')
+    Plug 'godlygeek/tabular'
+    Plug 'tpope/vim-markdown'
+    Plug 'preservim/nerdtree'
+    Plug 'tomasiser/vim-code-dark'
+    Plug 'erichdongubler/vim-sublime-monokai'
+    Plug 'bubujka/emmet-vim'
+call plug#end()
 
 "syntax highlighting
 syntax on
@@ -69,10 +41,14 @@ set cindent
 
 "gvim
 if has("gui_running")
-    :set guifont=Consolas:h10.5:cANSI
-    :set guifontwide=D2Coding:h10.5:cDEFAULT
-    :set guioptions-=T
-endif
+    set guioptions-=T
+    if has('gui_win32')
+        set guifont=Consolas:h10.5:cANSI
+        set guifontwide=D2Coding:h10.5:cDEFAULT
+    else
+        set guifont=monospace\ 13
+    endif
+end
 
 "remember fold states
 au BufWinLeave ?* mkview
@@ -81,7 +57,6 @@ au BufWinEnter ?* silent loadview
 "highlight extra white spaces
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
-
 
 "autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
