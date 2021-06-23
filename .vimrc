@@ -42,6 +42,7 @@ set cindent
 "gvim
 if has("gui_running")
     set guioptions-=T
+    set guioptions-=m
     if has('gui_win32')
         set guifont=Consolas:h10.5:cANSI
         set guifontwide=D2Coding:h10.5:cDEFAULT
