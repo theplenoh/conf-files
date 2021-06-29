@@ -117,5 +117,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
+alias ll='ls -lhF'
 export TIME_STYLE=long-iso
 set -o vi
