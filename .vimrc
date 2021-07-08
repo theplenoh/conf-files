@@ -14,8 +14,8 @@ call plug#end()
 syntax on
 set t_Co=256
 colorscheme codedark
-let g:sublimemonokai_term_italic = 1
-let g:sublimemonokai_gui_italic = 1
+"let g:sublimemonokai_term_italic = 1
+"let g:sublimemonokai_gui_italic = 1
 
 "encodings
 set encoding=utf-8
