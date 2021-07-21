@@ -1,7 +1,7 @@
 "restore all options to their originals
 set all&
 
-call plug#begin('~/vimfiles/plugged')
+call plug#begin('~/.vim/plugged')
     Plug 'godlygeek/tabular'
     Plug 'tpope/vim-markdown'
     Plug 'preservim/nerdtree'
