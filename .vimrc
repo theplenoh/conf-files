@@ -24,7 +24,7 @@ set fileencodings=utf-8,euc-kr,cp949
 set fileformat=unix
 set fileformats=unix,dos
 
-"for convinience
+"for convenience
 set number
 set ruler
 set wildmenu
