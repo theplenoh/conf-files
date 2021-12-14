@@ -43,7 +43,7 @@ set nowrap
 filetype indent on
 set autoindent
 set cindent
-"set smartindent
+set smartindent
 
 " Code folding
 set foldmethod=indent
