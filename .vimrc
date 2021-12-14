@@ -10,7 +10,8 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'tpope/vim-markdown'
     Plug 'bubujka/emmet-vim'
-    Plug '2072/php-indenting-for-vim'
+    Plug 'captbaritone/better-indent-support-for-php-with-html'
+    "Plug '2072/php-indenting-for-vim'
 call plug#end()
 
 " Syntax highlighting
@@ -18,8 +19,8 @@ syntax on
 set background=dark
 set t_Co=256
 colorscheme codedark
-"let g:sublimemonokai_term_italic = 1
-"let g:sublimemonokai_gui_italic = 1
+let g:sublimemonokai_term_italic = 1
+let g:sublimemonokai_gui_italic = 1
 
 " Encodings
 set encoding=utf-8
@@ -39,6 +40,7 @@ set expandtab "soft tab
 set nowrap
 
 " Indentation
+filetype indent on
 set autoindent
 set cindent
 "set smartindent
