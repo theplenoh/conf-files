@@ -60,10 +60,10 @@ match ExtraWhitespace /\s\+$/
 map <C-n> :NERDTreeToggle<CR>
 "autocmd vimenter * NERDTree
 
-" Tabs
+" Splits
 set splitbelow
 set splitright
-set termwinsize=14x0
+set termwinsize=17*0
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
