@@ -59,6 +59,10 @@ au BufWinEnter ?* silent loadview
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
+" Specific indenting widths for different filetypes
+autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType html setlocal shiftwidth=4 softtabstop=4 expandtab
+
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 "autocmd vimenter * NERDTree
