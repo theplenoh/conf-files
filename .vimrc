@@ -4,6 +4,8 @@ set all&
 " For vim-plug
 call plug#begin('~/.vim/plugged')
     Plug 'preservim/nerdtree'
+    Plug 'universal-ctags/ctags'
+    Plug 'majutsushi/tagbar'
 
     Plug 'tomasiser/vim-code-dark'
     Plug 'erichdongubler/vim-sublime-monokai'
@@ -30,6 +32,7 @@ set fileformat=unix
 set fileformats=unix,dos
 
 " For convenience
+set ttimeoutlen=100
 set number
 set ruler
 set wildmenu
@@ -60,15 +63,20 @@ match ExtraWhitespace /\s\+$/
 map <C-n> :NERDTreeToggle<CR>
 "autocmd vimenter * NERDTree
 
+" Tagbar
+"let g:tagbar_ctags_bin =
+nmap <C-i> :TagbarToggle<CR>
+
 " Splits
 set splitbelow
 set splitright
-set termwinsize=17*0
+set termwinsize=16*0
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+map <C-t> :term<CR>
 
 " For gvim
 if has("gui_running")
@@ -81,3 +89,27 @@ if has("gui_running")
         set guifont=monospace\ 13
     endif
 end
+
+" Remove newbie crutches in Command Mode
+"cnoremap <Down> <Nop>
+"cnoremap <Left> <Nop>
+"cnoremap <Right> <Nop>
+"cnoremap <Up> <Nop>
+
+" Remove newbie crutches in Insert Mode
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+inoremap <Up> <Nop>
+
+" Remove newbie crutches in Normal Mode
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+nnoremap <Up> <Nop>
+
+" Remove newbie crutches in Visual Mode
+vnoremap <Down> <Nop>
+vnoremap <Left> <Nop>
+vnoremap <Right> <Nop>
+vnoremap <Up> <Nop>
