@@ -7,6 +7,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'universal-ctags/ctags'
     Plug 'majutsushi/tagbar'
 
+    Plug 'nathanaelkane/vim-indent-guides'
+
     Plug 'tomasiser/vim-code-dark'
     Plug 'erichdongubler/vim-sublime-monokai'
 
@@ -15,6 +17,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'captbaritone/better-indent-support-for-php-with-html'
     "Plug '2072/php-indenting-for-vim'
 call plug#end()
+
+" Indent Guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
 
 " Syntax highlighting
 syntax on
@@ -61,6 +68,7 @@ match ExtraWhitespace /\s\+$/
 
 " Specific indenting widths for different filetypes
 autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType md setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType html setlocal shiftwidth=4 softtabstop=4 expandtab
 
 " NERDTree
