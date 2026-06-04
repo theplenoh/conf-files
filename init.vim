@@ -24,6 +24,7 @@ let g:indent_guides_guide_size = 1
 
 " Syntax highlighting
 syntax on
+set notermguicolors
 set background=dark
 set t_Co=256
 colorscheme sublimemonokai
@@ -58,8 +59,11 @@ set smartindent
 set foldmethod=indent
 
 " Remember fold states
-au BufWinLeave ?* mkview
-au BufWinEnter ?* silent loadview
+augroup RememberFolds
+  autocmd!
+  autocmd BufWinLeave ?* if &buftype == '' | silent! mkview | endif
+  autocmd BufWinEnter ?* if &buftype == '' | silent! loadview | endif
+augroup END
 
 " Highlight extra white spaces
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -81,11 +85,17 @@ nmap <C-i> :TagbarToggle<CR>
 " Splits
 set splitbelow
 set splitright
+highlight VertSplit ctermbg=NONE guibg=NONE ctermfg=242 guifg=#666666
+highlight WinSeparator ctermbg=NONE guibg=NONE ctermfg=242 guifg=#666666
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Allow use of a mouse
+set mouse=a
+set clipboard+=unnamedplus
 
 " Terminal
 " Terminal Function
@@ -104,11 +114,11 @@ function! TermToggle(height)
             call termopen($SHELL, {"detach": 0})
             let g:term_buf = bufnr("")
             set nonumber
-            set norelativenumber
-            set signcolumn=no
-            set noruler
-            set nowildmenu
-            set laststatus=0
+            "set norelativenumber
+            "set signcolumn=no
+            "set ruler
+            "set wildmenu
+            "set laststatus=2
         endtry
         startinsert!
         let g:term_win = win_getid()
