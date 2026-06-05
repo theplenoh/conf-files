@@ -60,9 +60,9 @@ set foldmethod=indent
 
 " Remember fold states
 augroup RememberFolds
-  autocmd!
-  autocmd BufWinLeave ?* if &buftype == '' | silent! mkview | endif
-  autocmd BufWinEnter ?* if &buftype == '' | silent! loadview | endif
+    autocmd!
+    autocmd BufWinLeave ?* if &buftype == '' | silent! mkview | endif
+    autocmd BufWinEnter ?* if &buftype == '' | silent! loadview | endif
 augroup END
 
 " Highlight extra white spaces
